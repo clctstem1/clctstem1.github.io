@@ -43,13 +43,13 @@ var videoHeight = 480
 
 var pictures = [
     
-    'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V1.jpg',
-    'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V2.jpg',
+    'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V1.jpg'//,
+    /*'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V2.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V3.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V4.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/fist.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/ok.jpg',
-
+    */
   ];
 
 
@@ -59,21 +59,22 @@ var hands_required_angles = [
     [
         [ 
             [3, 2, 1], //landmark points
-            155 //required angle
+            165 //required angle
         ],
 
         [ 
             [2, 1, 0], //landmark points
-            160 //required angle
+            155 //required angle
         ],
 
         [ 
             [1, 0, 5], //landmark points
-            40 //required angle
+            45 //required angle
         ]
-    ],
+    ]//,
 
-//1 
+//1
+/* 
     [ 
         [
             [6, 5, 9], //landmark points
@@ -162,8 +163,7 @@ var hands_required_angles = [
             -130 //required angle
         ]
     ],  
-
-
+*/
 ];
 
 var random_index = Math.floor(Math.random()*hands_required_angles.length);
@@ -258,7 +258,7 @@ function onResults(results) {
 
   
 
-   if ( angle1 <= selected_hands[0][1] && angle2 <= selected_hands[1][1] && angle3 <= selected_hands[2][1] &&angle1!=0 &&angle2!=0 &&angle3!=0)
+   if ( angle1 >= selected_hands[0][1] && angle2 >= selected_hands[1][1] && angle3 >= selected_hands[2][1] &&angle1!=0 &&angle2!=0 &&angle3!=0)
    {
 
       canvasCtx.font = "100px Arial";
