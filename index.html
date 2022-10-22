@@ -2,6 +2,30 @@
 <html>
 <head>
   <meta charset="utf-8">
+
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .box1,.box2,.box3,.box4 {
+      width: 50%;
+    }
+    .box3 {
+      margin-top: 140px;
+      display: none;
+    }
+    button {
+      position: absolute;
+      bottom: 29%;
+      right: 22%;
+      height: 40px;
+      width: 100px;
+    }
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
@@ -11,15 +35,18 @@
 <body>
   <div id="result"></div>
   <div class="container">
-    <canvas class="output_canvas" width="640" height="480"></canvas>
-    <img src="" id="target_img" width="600" />
-    <video class="input_video" style="width: 640px; height: 480px"></video>    
+    <div class="box1"><canvas id="2d" class="output_canvas" width="640" height="480"></canvas></div>
+    <div class="box2"><img src="" id="target_img" width="600" /></div>
+    <div class="box3" id="box3"><video class="input_video" style="width: 640px; height: 480px"></video></div> 
+    <button  onclick="changeBtn()">切换</button>
   </div>
   
 </body>
 </html>
 
 <script type="module">
+
+
 
 if (typeof(Storage) !== "undefined") {
   // Code for localStorage/sessionStorage.
@@ -43,13 +70,13 @@ var videoHeight = 480
 
 var pictures = [
     
-    'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V1.jpg'//,
-    /*'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V2.jpg',
+    'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V1.jpg',
+    'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V2.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V3.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/V4.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/fist.jpg',
     'https://raw.githubusercontent.com/clctstem1/clctstem1.github.io/726e8f8445bf5246194f868c0959f9a29c3bb466/ok.jpg',
-    */
+
   ];
 
 
@@ -229,21 +256,26 @@ function onResults(results) {
 
  
   var angle1 = find_angle(results.multiHandLandmarks, selected_hands[0][0][0], selected_hands[0][0][1], selected_hands[0][0][2]);
+    canvasCtx.fillStyle = "#ffffffE5";
+    canvasCtx.fillRect(0, 0, 640, 100)
 
     canvasCtx.font = "30px Arial";
-    canvasCtx.fillText("Angle"+angle1, 10, 50);        
+    canvasCtx.fillStyle = "#000";
+    canvasCtx.fillText("Angle"+angle1, 10, 30);        
     console.log(angle1)
 
   var angle2 = find_angle(results.multiHandLandmarks, selected_hands[1][0][0], selected_hands[1][0][1], selected_hands[1][0][2]);
 
     canvasCtx.font = "30px Arial";
-    canvasCtx.fillText("Angle"+angle2, 10, 80);        
+    canvasCtx.fillStyle = "#000";
+    canvasCtx.fillText("Angle"+angle2, 10, 60);        
     console.log(angle2)
 
   var angle3 = find_angle(results.multiHandLandmarks, selected_hands[2][0][0], selected_hands[2][0][1], selected_hands[2][0][2]);
 
     canvasCtx.font = "30px Arial";
-    canvasCtx.fillText("Angle"+angle3, 10, 110);        
+    canvasCtx.fillStyle = "#000";
+    canvasCtx.fillText("Angle"+angle3, 10, 90);        
     console.log(angle3)
 
   //console.log(selected_hands[0][1]);
@@ -307,4 +339,20 @@ const camera = new Camera(videoElement, {
 canvasCtx.font = "30px Arial";
 canvasCtx.fillText("Please allow camera permission, Loading..." , 10, 50);    
 camera.start();
+</script>
+
+<script type="text/javascript">
+
+const changeBtn = () =>  {
+  const btn = document.getElementById('box3');
+  console.log('ddd',btn,btn.style);
+  if(btn.style.display === 'none') {
+    btn.style.display = 'block';
+  }else if(btn.style.display === 'block') {
+    btn.style.display = 'none';
+  }else if(btn.style.display === '') {
+    btn.style.display = "block";
+  }
+}
+
 </script>
