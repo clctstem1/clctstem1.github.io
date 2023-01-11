@@ -211,24 +211,9 @@
       ],
 
       [
-        [16, 15, 13], //landmark points
-        -170  //required angle
-      ],
-
-      [
         [20, 19, 17], //landmark points
         -170  //required angle
-      ],
-
-      [
-        [6, 5, 9], //landmark points
-        75 //required angle
-      ],
-
-      [
-        [13, 17, 18], //landmark points
-        65 //required angle
-      ],
+      ]
     ],
 
     //1
@@ -429,26 +414,6 @@
       canvasCtx.fillText("Angle" + angle5, 260, 30);
       // console.log(angle5)
 
-      var angle6 = find_angle(results.multiHandLandmarks, selected_hands[5][0][0], selected_hands[5][0][1], selected_hands[5][0][2]);
-
-      canvasCtx.font = "20px Arial";
-      canvasCtx.fillStyle = "#6495ED";
-      canvasCtx.fillText("Angle" + angle6, 260, 60);
-      // console.log(angle6)
-
-      var angle7 = find_angle(results.multiHandLandmarks, selected_hands[6][0][0], selected_hands[6][0][1], selected_hands[6][0][2]);
-
-      canvasCtx.font = "20px Arial";
-      canvasCtx.fillStyle = "#6495ED";
-      canvasCtx.fillText("Angle" + angle7, 260, 90);
-      // console.log(angle7)
-
-      var angle8 = find_angle(results.multiHandLandmarks, selected_hands[7][0][0], selected_hands[7][0][1], selected_hands[7][0][2]);
-
-      canvasCtx.font = "20px Arial";
-      canvasCtx.fillStyle = "#6495ED";
-      canvasCtx.fillText("Angle" + angle8, 260, 120);
-      // console.log(angle8)
       //console.log(selected_hands[0][1]);
 
       // Store
@@ -464,10 +429,9 @@
           ((selected_hands[1][1] > 0 && angle2 <= Math.abs(selected_hands[1][1])) || (selected_hands[1][1] < 0 && angle2 >= Math.abs(selected_hands[1][1]))) &&
           ((selected_hands[2][1] > 0 && angle3 <= Math.abs(selected_hands[2][1])) || (selected_hands[2][1] < 0 && angle3 >= Math.abs(selected_hands[2][1]))) &&
           ((selected_hands[3][1] > 0 && angle4 <= Math.abs(selected_hands[3][1])) || (selected_hands[3][1] < 0 && angle4 >= Math.abs(selected_hands[3][1]))) &&
-          ((selected_hands[4][1] > 0 && angle5 <= Math.abs(selected_hands[4][1])) || (selected_hands[4][1] < 0 && angle5 >= Math.abs(selected_hands[4][1]))) &&
-          ((selected_hands[5][1] > 0 && angle6 <= Math.abs(selected_hands[5][1])) || (selected_hands[5][1] < 0 && angle6 >= Math.abs(selected_hands[5][1]))) &&
-          ((selected_hands[6][1] > 0 && angle7 <= Math.abs(selected_hands[6][1])) || (selected_hands[6][1] < 0 && angle7 >= Math.abs(selected_hands[6][1]))) &&
-          ((selected_hands[7][1] > 0 && angle8 <= Math.abs(selected_hands[7][1])) || (selected_hands[7][1] < 0 && angle8 >= Math.abs(selected_hands[7][1])))) {
+          ((selected_hands[4][1] > 0 && angle5 <= Math.abs(selected_hands[4][1])) || (selected_hands[4][1] < 0 && angle5 >= Math.abs(selected_hands[4][1])))) 
+
+          {
           canvasCtx.font = "100px Arial";
           canvasCtx.fillText("😁", 10, 300)
 
@@ -476,6 +440,7 @@
           //https://clctstem1.github.io/
           //https://clctstem1.github.io/?hand=1
 
+          /*
           index=Number(index)
           if (index>=3)
             index = 0
@@ -490,7 +455,7 @@
             
             window.location.href = '?'+urlParams.toString();
           }, 2000);
-          
+          */
           
 
           //doMeasureHand(1)
@@ -506,7 +471,7 @@
             notcal = false
           }
 
-        }
+          }
       }
     }
 
