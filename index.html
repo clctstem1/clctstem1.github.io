@@ -183,6 +183,8 @@
 
   ];
 
+  
+  //
 
   var hands_required_angles = [
 
@@ -248,22 +250,22 @@
     ],
        
     //2
-         [ 
-            [
-                [10, 9, 13], //landmark points
-                110 //required angle
-            ],
-    
-            [ 
-                [9, 13, 14], //landmark points
-                85 //required angle
-            ],
-    
-            [ 
-                [9, 13, 14], //landmark points
-                85 //required angle
-            ]
-        ],  
+    [ 
+      [
+          [10, 9, 13], //landmark points
+          110 //required angle
+      ],
+
+      [ 
+          [9, 13, 14], //landmark points
+          85 //required angle
+      ],
+
+      [ 
+          [9, 13, 14], //landmark points
+          85 //required angle
+      ]
+  ],  
     /* 
     //3
        [ 
@@ -321,7 +323,15 @@
     */
   ];
 
-  var random_index = Math.floor(Math.random() * hands_required_angles.length);
+  //var random_index = Math.floor(Math.random() * hands_required_angles.length);
+  var random_index = 0
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  var index = urlParams.get('hand')
+
+
+  console.log(index)
+  alert(index)
 
 
   function calculate_angle(a, b, c) {
@@ -389,56 +399,56 @@
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#FF0000";
       canvasCtx.fillText("Angle" + angle1, 10, 30);
-      console.log(angle1)
+      // console.log(angle1)
 
       var angle2 = find_angle(results.multiHandLandmarks, selected_hands[1][0][0], selected_hands[1][0][1], selected_hands[1][0][2]);
 
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#FF0000";
       canvasCtx.fillText("Angle" + angle2, 10, 60);
-      console.log(angle2)
+      // console.log(angle2)
 
       var angle3 = find_angle(results.multiHandLandmarks, selected_hands[2][0][0], selected_hands[2][0][1], selected_hands[2][0][2]);
 
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#FF0000";
       canvasCtx.fillText("Angle" + angle3, 10, 90);
-      console.log(angle3)
+      // console.log(angle3)
 
       var angle4 = find_angle(results.multiHandLandmarks, selected_hands[3][0][0], selected_hands[3][0][1], selected_hands[3][0][2]);
 
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#FF0000";
       canvasCtx.fillText("Angle" + angle4, 10, 120);
-      console.log(angle4)
+      // console.log(angle4)
 
       var angle5 = find_angle(results.multiHandLandmarks, selected_hands[4][0][0], selected_hands[4][0][1], selected_hands[4][0][2]);
 
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#6495ED";
       canvasCtx.fillText("Angle" + angle5, 260, 30);
-      console.log(angle5)
+      // console.log(angle5)
 
       var angle6 = find_angle(results.multiHandLandmarks, selected_hands[5][0][0], selected_hands[5][0][1], selected_hands[5][0][2]);
 
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#6495ED";
       canvasCtx.fillText("Angle" + angle6, 260, 60);
-      console.log(angle6)
+      // console.log(angle6)
 
       var angle7 = find_angle(results.multiHandLandmarks, selected_hands[6][0][0], selected_hands[6][0][1], selected_hands[6][0][2]);
 
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#6495ED";
       canvasCtx.fillText("Angle" + angle7, 260, 90);
-      console.log(angle7)
+      // console.log(angle7)
 
       var angle8 = find_angle(results.multiHandLandmarks, selected_hands[7][0][0], selected_hands[7][0][1], selected_hands[7][0][2]);
 
       canvasCtx.font = "20px Arial";
       canvasCtx.fillStyle = "#6495ED";
       canvasCtx.fillText("Angle" + angle8, 260, 120);
-      console.log(angle8)
+      // console.log(angle8)
       //console.log(selected_hands[0][1]);
 
       // Store
@@ -460,6 +470,30 @@
           ((selected_hands[7][1] > 0 && angle8 <= Math.abs(selected_hands[7][1])) || (selected_hands[7][1] < 0 && angle8 >= Math.abs(selected_hands[7][1])))) {
           canvasCtx.font = "100px Arial";
           canvasCtx.fillText("😁", 10, 300)
+
+          alert("successful")
+
+
+          url = window.location.href
+          console.log(url)
+
+          //https://clctstem1.github.io/
+          //https://clctstem1.github.io/?hand=1
+
+          if (index>=3)
+            index = 0
+
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          urlParams.set('hand', (index+1) )
+
+          setTimeout(function() {
+            
+            window.location.href = urlParams.toString();
+          }, 2000);
+          
+          
+
           //doMeasureHand(1)
                 //var next_index = index + 1;
                 // if (next_index >= hands_required_angles.length)
@@ -488,7 +522,7 @@
       doMeasureTimeout(0)
       doMeasureTimeout(1)
     */
-    doMeasureHand(0)
+    doMeasureHand(index)
 
     //Number of completions 
     /*    canvasCtx.font = "20px Arial";
