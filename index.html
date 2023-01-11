@@ -473,13 +473,10 @@
 
           alert("successful")
 
-
-          url = window.location.href
-          console.log(url)
-
           //https://clctstem1.github.io/
           //https://clctstem1.github.io/?hand=1
 
+          index=Number(index)
           if (index>=3)
             index = 0
 
@@ -487,9 +484,11 @@
           const urlParams = new URLSearchParams(queryString);
           urlParams.set('hand', (index+1) )
 
+          //window.location.href = '?'+urlParams.toString();
+
           setTimeout(function() {
             
-            window.location.href = urlParams.toString();
+            window.location.href = '?'+urlParams.toString();
           }, 2000);
           
           
