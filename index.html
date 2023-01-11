@@ -424,7 +424,7 @@
       var timeval = parseInt(localStorage.getItem("times")) + 0;
       console.log(timeval);
 
-      if (angle1 != 0 && angle2 != 0 && angle3 != 0 && angle4 != 0 && angle5 != 0 && angle6 != 0 && angle7 != 0 && angle8 != 0) {
+      if (angle1 != 0 && angle2 != 0 && angle3 != 0 && angle4 != 0 && angle5 != 0) {
         if (((selected_hands[0][1] > 0 && angle1 <= Math.abs(selected_hands[0][1])) || (selected_hands[0][1] < 0 && angle1 >= Math.abs(selected_hands[0][1]))) &&
           ((selected_hands[1][1] > 0 && angle2 <= Math.abs(selected_hands[1][1])) || (selected_hands[1][1] < 0 && angle2 >= Math.abs(selected_hands[1][1]))) &&
           ((selected_hands[2][1] > 0 && angle3 <= Math.abs(selected_hands[2][1])) || (selected_hands[2][1] < 0 && angle3 >= Math.abs(selected_hands[2][1]))) &&
