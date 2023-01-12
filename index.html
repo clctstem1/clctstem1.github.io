@@ -455,14 +455,18 @@
           canvasCtx.font = "100px Arial";
           canvasCtx.fillText("😁", 10, 300)
 
-          alert("successful")
+          
+          setTimeout(function() {
+            
+            alert("successful");
+          }, 1000);
 
           //https://clctstem1.github.io/
           //https://clctstem1.github.io/?hand=1
 
           
           index=Number(index)
-          if (index>=3)
+          if (index>=2)
             index = 0
 
           const queryString = window.location.search;
