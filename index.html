@@ -466,11 +466,13 @@
           canvasCtx.font = "100px Arial";
           canvasCtx.fillText("😁", 10, 300)
 
-          setTimeout(function() {
-            
-            alert("successful");
-          }, 2000);
-          
+          if (notcal == true) {
+            setTimeout(function() {
+              
+              alert("successful");
+            }, 2000);
+            notcal = false
+          }
 
           //https://clctstem1.github.io/
           //https://clctstem1.github.io/?hand=0
@@ -500,11 +502,11 @@
           
                // doMeasureHand(next_index)
           
-          if (notcal == true) {
+          /*if (notcal == true) {
             timeval = timeval + 1;
             localStorage.setItem("times", timeval);
             notcal = false
-          }
+          }*/
 
           }
       }
