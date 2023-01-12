@@ -455,9 +455,13 @@
           canvasCtx.font = "100px Arial";
           canvasCtx.fillText("😁", 10, 300)
 
-          async function performBatchActions() {
-                await sleep(5)
-          }
+          function sleep(duration) {
+              return new Promise(resolve => {
+                setTimeout(() => {
+                  resolve()
+                }, duration * 1000)
+              })
+            }
 
           alert("successful");
 
