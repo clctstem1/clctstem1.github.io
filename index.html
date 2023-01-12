@@ -455,11 +455,11 @@
           canvasCtx.font = "100px Arial";
           canvasCtx.fillText("😁", 10, 300)
 
-          
-          setTimeout(function() {
-            
-            alert("successful");
-          }, 1000);
+          async function performBatchActions() {
+                await sleep(1)
+          }
+
+          alert("successful");
 
           //https://clctstem1.github.io/
           //https://clctstem1.github.io/?hand=1
