@@ -456,7 +456,7 @@
           canvasCtx.fillText("😁", 10, 300)
 
           async function performBatchActions() {
-                await sleep(1)
+                await sleep(5)
           }
 
           alert("successful");
@@ -467,7 +467,7 @@
           
           index=Number(index)
           if (index>=2)
-            index = 0
+            index = -1
 
           const queryString = window.location.search;
           const urlParams = new URLSearchParams(queryString);
