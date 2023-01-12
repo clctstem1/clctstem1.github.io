@@ -334,6 +334,16 @@
   const urlParams = new URLSearchParams(queryString);
   var index = urlParams.get('hand')
 
+  //sleep function
+  
+  function sleep(duration) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve()
+        }, duration * 1000)
+      })
+    }
+
 
   console.log(index)
   alert(index)
@@ -455,13 +465,7 @@
           canvasCtx.font = "100px Arial";
           canvasCtx.fillText("😁", 10, 300)
 
-          function sleep(duration) {
-              return new Promise(resolve => {
-                setTimeout(() => {
-                  resolve()
-                }, duration * 1000)
-              })
-            }
+          sleep(1)
 
           alert("successful");
 
