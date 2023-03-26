@@ -475,7 +475,12 @@
             index=Number(index)
           //index = Math.floor(Math.random() * 3) - 1
           //index = Math.floor(Math.random() * (max - min + 1) + min)
+          index_old = index
           index = Math.floor(Math.random() * (2 - 1 + 1) + 1) % 3
+          If (index == index_old)
+          {
+            index += 1
+          }
           //index += Math.floor(Math.random() * (1) % 3
 
           const queryString = window.location.search;
